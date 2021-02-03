@@ -41,5 +41,5 @@ $ mysql -u root -p
 
 * Creem una BD específica per al projecte de infraestructura.
 ```mysql
-mysql> create database infraestructura;
+mysql> create database infra3;
 ```
