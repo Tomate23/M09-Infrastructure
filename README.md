@@ -29,7 +29,7 @@ Editem l'arxiu i assignem el upload_max_filesize a 50M
 $ upload_max_filesize = 50M
 ```
 
-# Instal·lem MySQL
+# Instal·lem MySQL i ho deixem configurat
 ```sh
 $ sudo apt install mysql-server
 ```
@@ -42,4 +42,12 @@ $ mysql -u root -p
 * Creem una BD específica per al projecte de infraestructura.
 ```mysql
 mysql> create database infra3;
+```
+* Creem un usuari específic per a l'administració de la BD:
+```mysql
+mysql> createuser infra3control@% identified by '***';
+```
+> Assignem al nou usuari tots els permisos de la nova BD infra3.
+```mysql
+mysql> grant all on infra3.* to infra3control@%;
 ```
