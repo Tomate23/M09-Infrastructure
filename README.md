@@ -51,5 +51,5 @@ mysql> createuser infra3control@% identified by '***';
 ```mysql
 mysql> grant all on infra3.* to infra3control@%;
 mysql> flush privileges;
-mysql> quit
+mysql> systemctl restart mysql
 ```
