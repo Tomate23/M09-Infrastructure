@@ -50,4 +50,6 @@ mysql> createuser infra3control@% identified by '***';
 > Assignem al nou usuari tots els permisos de la nova BD infra3.
 ```mysql
 mysql> grant all on infra3.* to infra3control@%;
+mysql> flush privileges;
+mysql> quit
 ```
