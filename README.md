@@ -1,2 +1,5 @@
 # M09-Infrastructure
-Project 
+Treballarem amb una instancia a Oracle Cloud.
+En aquesta instància hi afegirem, MySQL, Apache2, PHP.
+
+
