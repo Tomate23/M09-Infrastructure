@@ -13,3 +13,20 @@ $ sudo apt upgrade
 
 # Instal·lació Apache2
 
+```sh
+$ sudo apt install apache2 -y
+$ sudo systemctl start apache2
+$ sudo systemctl enable apache2
+```
+
+# Instal·lació PHP 7.4
+```sh
+$ sudo apt install wget php php-cli php-fpm php-mysql php-zip php-gd phpmbstring php-curl php-xml php-pear php-bcmath
+$ sudo vim /etc/php/7.4/apache2/php.ini
+```
+Editem l'arxiu i assignem el upload_max_filesize a 50M
+```sh
+$ upload_max_filesize = 50M
+```
+
+
