@@ -29,4 +29,12 @@ Editem l'arxiu i assignem el upload_max_filesize a 50M
 $ upload_max_filesize = 50M
 ```
 
+# Instal·lem MySQL
+```sh
+$ sudo apt install mysql-server
+```
+* Creem una BD específica per al projecte.
+
+
+
 
