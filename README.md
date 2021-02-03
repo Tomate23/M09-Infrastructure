@@ -4,4 +4,12 @@
 Treballarem amb una instancia a Oracle Cloud.
 En aquesta instància hi afegirem, MySQL, Apache2, PHP.
 
+# Abans de instal·lar qualsevol cosa:
+```sh
+$ sudo apt update
+$ sudo apt upgrade
+```
+
+
+# Instal·lació Apache2
 
