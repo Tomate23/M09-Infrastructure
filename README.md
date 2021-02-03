@@ -34,7 +34,10 @@ $ upload_max_filesize = 50M
 $ sudo apt install mysql-server
 ```
 * Creem una BD específica per al projecte.
-
+```sh
+$ mysql -u root -p
+```
+> La contrasenya serà la que haguem ficat a la instal·lació de MySQL quan ens ha preguntat.
 
 
 
