@@ -59,7 +59,14 @@
                                 <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.
                                 </p>
                             </div>
-                            <form action="#" method="post">
+                            <form action="../Includes-PHP/signup.inc.php" method="post">
+
+                                <?
+                                if(isset($_GET['error'])){
+                                    echo '<center class="valid">Datos no validos</center>';
+                                }
+                                ?>
+                                
                                 <div class="form-group first">
                                     <label for="username"></label>
                                     <input type="text" class="form-control" id="username" placeholder="Username">

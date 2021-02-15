@@ -36,7 +36,7 @@
                                     <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.
                                     </p>
                                 </div>
-                                <form action="#" method="post">
+                                <form action="../Includes-PHP/signup.inc.php" method="post">
                                     <div class="form-group first">
                                         <label for="name"></label>
                                         <input type="text" class="form-control" id="name" placeholder="Name">

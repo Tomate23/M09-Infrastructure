@@ -48,10 +48,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Redirec/Login.html">Login</a>
+                        <a class="nav-link" href="Redirec/Login.php">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Redirec/Signup.html">SignUp</a>
+                        <a class="nav-link" href="Redirec/Signup.php">SignUp</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">My Events</a>
