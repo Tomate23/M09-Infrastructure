@@ -1,7 +1,20 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 
 <head>
+
+    <style>
+        .valid {
+            background-color: #f44336;
+            text-transform: uppercase;
+            color: #000;
+            border: 1px solid black;
+        }
+    </style>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,8 +36,6 @@
 
 <body>
 
-
-
     <div class="content">
         <div class="container">
             <div class="row">
@@ -33,11 +44,11 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="../index.html">home</a>
+                                <a href="../index.php">home</a>
                                 <span></span><span></span><span></span><span></span>
                             </li>
                             <li>
-                                <a href="./Signup.html">SignUp</a>
+                                <a href="./Signup.php">SignUp</a>
                                 <span></span><span></span><span></span><span></span>
                             </li>
                             <!-- <li>
@@ -59,22 +70,23 @@
                                 <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.
                                 </p>
                             </div>
-                            <form action="../Includes-PHP/signup.inc.php" method="post">
+                            <form action="../Includes-PHP/login.inc.php" method="post">
 
-                                <?
-                                if(isset($_GET['error'])){
-                                    echo '<center class="valid">Datos no validos</center>';
+                                <?php
+                                if(isset($_SESSION['error'])){
+                                    $errormsg = $_SESSION['error'];
+                                    echo '<center class="valid">'.$errormsg.'</center>';
                                 }
                                 ?>
-                                
+
                                 <div class="form-group first">
                                     <label for="username"></label>
-                                    <input type="text" class="form-control" id="username" placeholder="Username">
+                                    <input type="text" class="form-control" name="username" placeholder="Username">
 
                                 </div>
                                 <div class="form-group last mb-4">
                                     <label for="password"></label>
-                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                    <input type="password" class="form-control" name="password" placeholder="Password">
 
                                 </div>
 
@@ -120,3 +132,7 @@
 </body>
 
 </html>
+
+<?php
+    unset($_SESSION["error"]);
+?>

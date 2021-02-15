@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,8 +35,20 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
         <div class="container">
-
-            <a class="navbar-brand" href="#">Incidencias</a>
+            <?php
+                ini_set( "display_errors", 0);
+                session_start();
+                if($_SESSION['logged']==true){
+                    $currentUser = $_SESSION["username"];
+                    echo '<a class="navbar-brand" href="includes-PHP/exit.php">'.$currentUser.'</a>';
+                    
+                }
+                elseif($_SESSION['logged']==false){
+                    echo '<a class="navbar-brand" href="#">Incidencias</a>';
+                    
+                }
+            ?>
+            <!-- <a class="navbar-brand" href="#">Incidencias</a> -->
             <img src="./img/chili-pepper.png" alt="Picantes">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -72,8 +85,6 @@
             </div>
         </div>
     </header> -->
-
-
 
     <section class="ftco-section">
         <div class="container">
