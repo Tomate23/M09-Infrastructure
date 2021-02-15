@@ -1,6 +1,6 @@
 -- Create the table user 
-CREATE TABLE user (
-    idUser VARCHAR(6) AUTO_INCREMENT,
+CREATE TABLE userE (
+    idUser int NOT NULL AUTO_INCREMENT,
     nameUser VARCHAR(50) NOT NULL,
     mailUser VARCHAR(255) NOT NULL,
     passwordUser VARCHAR(255) NOT NULL,
@@ -16,10 +16,10 @@ UserAdministrator(UADM)
 */
 CREATE TABLE roleUser (
     roleUser VARCHAR(5) NULL NULL,
-    idUser VARCHAR(6) AUTO_INCREMENT,
+    idUser int NOT NULL AUTO_INCREMENT,
 
     PRIMARY KEY (roleUser),
-    CONSTRAINT FK_userRole FOREIGN KEY (idUser) REFERENCES user(idUser)
+    CONSTRAINT FK_userRole FOREIGN KEY (idUser) REFERENCES userE(idUser)
     -- In order to make easier DROP foreign key in the future, we specify the name of the CONSTRAINT
 );
 
@@ -38,11 +38,11 @@ CREATE TABLE event (
 
     -- Foreign Keys
     idRoom VARCHAR(10) NOT NULL,
-    idUser VARCHAR(6) AUTO_INCREMENT,
+    idUser int,
 
     PRIMARY KEY (idEvent),
     CONSTRAINT FK_roomsFloor FOREIGN KEY (idRoom) REFERENCES room(idRoom),
-    CONSTRAINT FK_userEvent FOREIGN KEY (idUser) REFERENCES user(idUser)
+    CONSTRAINT FK_userEvent FOREIGN KEY (idUser) REFERENCES userE(idUser)
     /*
     -- We understand that in one event can be implicated ONE room, but one room COULD HAVE
     more than one event
@@ -66,7 +66,7 @@ CREATE TABLE component (
     descripComponent VARCHAR(255) NOT NULL,
     nameComponent VARCHAR(50) NOT NULL,
 
-    idEvent int NOT NULL AUTO_INCREMENT,
+    idEvent int NOT NULL,
     idCategory VARCHAR(10) NOT NULL,
     idRoom VARCHAR(10) NOT NULL,
 
