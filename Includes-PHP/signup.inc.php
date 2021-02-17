@@ -10,7 +10,7 @@ $pass2 = $_POST['re-password'];
 $errorLog = "INVALID EMAIL";
 $errorPass = "PASSWORDS DON'T MATCH";
 
-// let's validate the allowd email inspedralbes.cat
+// let's validate the allowed email inspedralbes.cat
 $validEmail = explode("@", $mail);
 if ($validEmail[1] != "inspedralbes.cat") {
     $_SESSION["error"] = $errorLog;
@@ -18,7 +18,7 @@ if ($validEmail[1] != "inspedralbes.cat") {
 } else {
     if ($pass === $pass2) {
         // success
-        $sql = "INSERT INTO usere (nameUser,mailUser,passwordUser	) VALUES ('$name','$mail', MD5('$pass'))";
+        $sql = "INSERT INTO usere (nameUser,mailUser,passwordUser) VALUES ('$name','$mail', MD5('$pass'))";
         mysqli_query($conndb, $sql);
         header("location: ../index.php?=successSignUp");
     } else {

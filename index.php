@@ -353,7 +353,7 @@
                     <div class="card__content">
                         <h1 class="card__header">Hardware</h1>
                         <p class="card__text">Look up at the night sky, and find yourself <strong>immersed</strong> in the amazing mountain range of Aspen.</p>
-                        <a class="card__btn" href="./Redirec/HardwareForm2.html">Explore<span>&rarr;</span>
+                        <a class="card__btn" href="./Redirec/HardwareForm2.php">Explore<span>&rarr;</span>
                         </a>
                     </div>
                 </div>

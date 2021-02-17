@@ -1,3 +1,11 @@
+CREATE TABLE roleUser (
+    idRole int NOT NULL AUTO_INCREMENT,
+    roleUser VARCHAR(5) NOT NULL,
+    descripRole VARCHAR(50) NOT NULL,
+
+    PRIMARY KEY (idRole)
+);
+
 -- Create the table user 
 CREATE TABLE userE (
     idUser int NOT NULL AUTO_INCREMENT,
@@ -5,7 +13,11 @@ CREATE TABLE userE (
     mailUser VARCHAR(255) NOT NULL,
     passwordUser VARCHAR(255) NOT NULL,
 
-    PRIMARY KEY (idUser)
+    idRole int  NULL,
+
+    PRIMARY KEY (idUser),
+    CONSTRAINT FK_roleUSer FOREIGN KEY (idRole) REFERENCES roleUser(idRole)
+
 );
 
 /*
@@ -14,14 +26,7 @@ the format of the roleUser keys will be like (UREG/UTEA/UADM)
 this three terms stands for UserRegistrated(UREG), UserTeacher(UTEA) and
 UserAdministrator(UADM)
 */
-CREATE TABLE roleUser (
-    roleUser VARCHAR(5) NULL NULL,
-    idUser int NOT NULL AUTO_INCREMENT,
 
-    PRIMARY KEY (roleUser),
-    CONSTRAINT FK_userRole FOREIGN KEY (idUser) REFERENCES userE(idUser)
-    -- In order to make easier DROP foreign key in the future, we specify the name of the CONSTRAINT
-);
 
 -- Create table room
 CREATE TABLE room (
@@ -30,18 +35,49 @@ CREATE TABLE room (
 
     PRIMARY KEY(idRoom)
 );
+
+-- Create table Component's category
+Create TABLE compCategory (
+    idCategory VARCHAR(10) NOT NULL,
+    nameCategory VARCHAR(20) NOT NULL,
+    descripCategory VARCHAR(255) NOT NULL,
+    imgCategory text NULL,
+
+    PRIMARY KEY (idCategory)
+);
+
+-- Create table Component
+CREATE TABLE component (
+    idComponent int NOT NULL AUTO_INCREMENT,
+    nameComponent VARCHAR(50) NOT NULL,
+    descripComponent VARCHAR(255) NOT NULL,
+    label VARCHAR(50) NOT NULL,
+
+    idCategory VARCHAR(10) NOT NULL,
+
+    PRIMARY KEY (idComponent),
+    FOREIGN KEY (idCategory) REFERENCES compCategory(idCategory)
+);
+
 -- Create table Events
-CREATE TABLE event (
+CREATE TABLE events (
     idEvent int NOT NULL AUTO_INCREMENT,
+    userEvento VARCHAR(50) NOT NULL,
+    mailEvento VARCHAR(255) NOT NULL,
+    device VARCHAR(50) NOT NULL,
+    eventDate DATE NOT NULL,
+
     descripEvent VARCHAR(255) NOT NULL,
     importanceEvent VARCHAR(255) NOT NULL,
 
     -- Foreign Keys
     idRoom VARCHAR(10) NOT NULL,
+    floorRoom int(5) NOT NULL,
+    label VARCHAR(50) NOT NULL,
     idUser int,
 
     PRIMARY KEY (idEvent),
-    CONSTRAINT FK_roomsFloor FOREIGN KEY (idRoom) REFERENCES room(idRoom),
+    CONSTRAINT FK_roomsID FOREIGN KEY (idRoom) REFERENCES room(idRoom),
     CONSTRAINT FK_userEvent FOREIGN KEY (idUser) REFERENCES userE(idUser)
     /*
     -- We understand that in one event can be implicated ONE room, but one room COULD HAVE
@@ -50,37 +86,3 @@ CREATE TABLE event (
     --  We understand that one user could have one or more events, but the user only can create on event at the time
     */
 );
-
--- Create table Component's category
-Create TABLE compCategory (
-    idCategory VARCHAR(10) NOT NULL,
-    nameCategory VARCHAR(20) NOT NULL,
-    descripCategory VARCHAR(255) NOT NULL,
-
-    PRIMARY KEY (idCategory)
-);
-
--- Create table Component
-CREATE TABLE component (
-    idComponent int NOT NULL AUTO_INCREMENT,
-    descripComponent VARCHAR(255) NOT NULL,
-    nameComponent VARCHAR(50) NOT NULL,
-
-    idEvent int NOT NULL,
-    idCategory VARCHAR(10) NOT NULL,
-    idRoom VARCHAR(10) NOT NULL,
-
-    PRIMARY KEY (idComponent),
-    
-    FOREIGN KEY (idEvent) REFERENCES event(idEvent),
-    FOREIGN KEY (idCategory) REFERENCES compCategory(idCategory),
-    FOREIGN KEY (idRoom) REFERENCES room(idRoom)
-);
-
-
-
-
-
-
-
-
