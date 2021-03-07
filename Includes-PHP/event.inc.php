@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once './connection.php';
+include_once 'connection.php';
 
 $user           = $_POST['eventName'];
 $mail           = $_POST['mailEvent'];
@@ -14,7 +14,7 @@ $eventdecrip    = $_POST['descrip'];
 
 $errorMSG = "YOU HAVEN'T LOGED-IN";
 
-$query = "SELECT idUser FROM usere WHERE nameUser = '$user';";
+$query = "SELECT idUser FROM userE WHERE nameUser = '$user';";
 $result = mysqli_query($conndb,$query);
 $resultCheck = mysqli_num_rows($result);
 
@@ -25,8 +25,9 @@ if ($resultCheck > 0){
 }
 
 if ($_SESSION['logged'] == true) {
-    $sql = "INSERT INTO events (userEvento,mailEvento,device,eventDate,descripEvent,importanceEvent,idRoom,floorRoom,label,idUser) VALUES ('$user','$mail','$eventDevice','$eventdate','$eventdecrip','$gravity','$eventroom','$eventfloor','$eventLabel','$idUser')";
+    $sql = "INSERT INTO events (userEvento,mailEvento,device,eventDate,descripEvent,importanceEvent,idRoom,floorRoom,label,idUser) VALUES ('$user','$mail','$eventDevice','$eventdate','$eventdecrip','$gravity','$eventroom','$eventfloor','$eventLabel','$idUser');";
     mysqli_query($conndb, $sql);
+    echo "<br>";
     echo $user;
     echo "<br>";
     echo $mail;

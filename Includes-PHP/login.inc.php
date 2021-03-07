@@ -6,7 +6,7 @@ include_once './connection.php';
 
  $error = "INVALID INFORMATION";
 
- $sql = "SELECT * FROM usere WHERE nameUser='$name' AND passwordUser=MD5('$password');";
+ $sql = "SELECT * FROM userE WHERE nameUser='$name' AND passwordUser=MD5('$password');";
  $result = mysqli_query($conndb,$sql);
  $resultCheck = mysqli_num_rows($result);
 

@@ -43,7 +43,7 @@
                 session_start();
                 if($_SESSION['logged']==true){
                     $currentUser = $_SESSION["username"];
-                    echo '<a class="navbar-brand" href="includes-PHP/exit.php">'.$currentUser.'</a>';
+                    echo '<a class="navbar-brand" href="./Includes-PHP/exit.php">'.$currentUser.'</a>';
                     
                 }
                 elseif($_SESSION['logged']==false){
