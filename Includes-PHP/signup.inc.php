@@ -20,7 +20,7 @@ if ($validEmail[1] != "inspedralbes.cat") {
         // success
         $sql = "INSERT INTO usere (nameUser,mailUser,passwordUser) VALUES ('$name','$mail', MD5('$pass'))";
         mysqli_query($conndb, $sql);
-        header("location: ../index.php?=successSignUp");
+        header("Location: ../index.php?=successSignUp");
     } else {
         $_SESSION["error"] = $errorPass;
         header("Location: ../Redirec/signup.php");

@@ -63,12 +63,36 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <?php
+                    if($_SESSION['logged']==true){
+                        echo '
+                        <li class="nav-item">
+                            <a class="nav-link" href="Alerts/sudoku.php">Game</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="includes-PHP/exit.php">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Redirec/Signup.php"></a>
+                        </li>
+                        ';
+                    }else{
+                        echo '
+                        <li class="nav-item">
+                            <a class="nav-link" href="Redirec/Login.php">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Redirec/Signup.php">SignUp</a>
+                        </li>
+                        ';
+                    }
+                    ?>
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="Redirec/Login.php">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Redirec/Signup.php">SignUp</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="#">My Events</a>
                     </li>

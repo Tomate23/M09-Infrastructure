@@ -1,12 +1,11 @@
 <?php
 session_start();
 $errorMSG = "YOU HAVEN'T LOGED-IN";
-    if(isset($_SESSION['logged'])){
-
-    }else{
-        $_SESSION["errorlogin"] = $errorMSG;
-        header("Location: ../Redirec/Login.php");
-    }
+if (isset($_SESSION['logged'])) {
+} else {
+    $_SESSION["errorlogin"] = $errorMSG;
+    header("Location: ../Redirec/Login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +13,13 @@ $errorMSG = "YOU HAVEN'T LOGED-IN";
 <head>
 
     <style>
+        .valid {
+            background-color: #f44336;
+            text-transform: uppercase;
+            color: #000;
+            border: 1px solid black;
+        }
+
         *,
         :before,
         :after {
@@ -388,7 +394,7 @@ $errorMSG = "YOU HAVEN'T LOGED-IN";
 
     <div class="wrapper">
         <form action="../Includes-PHP/event.inc.php" method="post">
-            
+
             <h1>Hardware Form Event</h1>
             <h5>Inspired by Google's Material Design guidelines for text fields</h5>
             <div class="btn-box"><a class="btn btn-link" href="../index.php">Go Home</a></div>
