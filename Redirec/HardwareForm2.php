@@ -455,16 +455,29 @@ if (isset($_SESSION['logged'])) {
                 <br>
 
                 <label for="dateofbirth"></label>
-                <input type="date" name="dateofevent" id="dateofevent" required="required">
-
-                <div class="group">
+		<input type="date" name="dateofevent" id="dateofevent" required="required">
+        <br>
+        <div class="custom-select" style="width:200px; border-radius:3px;">
+            <select name="optionsroom" required>
+                <option value="0">Room:</option>
+                <option value="ASIX-07">ASIX-07</option>
+                <option value="DAMV-01">DAMV-01</option>
+                <!-- <option value="Es pot treballar però és bastant incomode.">Es pot treballar però és bastant incomode.</option>
+                <option value="A vegades molesta, però podem anar fent.">A vegades molesta, però podem anar fent.</option>
+                <option value="És un problema bàsicament estètic, no molesta gaire.">És un problema bàsicament estètic, no molesta gaire.</option> -->
+            </select>
+        </div>
+        <br>
+		
+		<!-- <div class="group">
                     <input type="number" min="-1" max="4" name="floor" required="required" /><span class="highlight"></span><span class="bar"></span>
                     <label>Floor Number</label>
-                </div>
+		</div>
+
                 <div class="group">
                     <input type="text" name="room" required="required" /><span class="highlight"></span><span class="bar"></span>
                     <label>Room ID</label>
-                </div>
+                </div> -->
 
                 <div class="custom-select" style="width:200px; border-radius:3px;">
                     <select name="options2" required>

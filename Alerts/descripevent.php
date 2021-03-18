@@ -92,7 +92,7 @@
         .front {
             background-color: #024395;
             /* background-image: url("https://img-fotki.yandex.ru/get/194550/29644339.5/0_d6c5f_c9f15850_orig"); */
-            background-image: url("https://www.flaticon.com/svg/vstatic/svg/1301/1301531.svg?token=exp=1615127152~hmac=ce10bce5f2eba0506701bcffc1849935");
+            background-image: url("https://raw.githubusercontent.com/Tomate23/Images/73471b7f69d9c677d7b5c00b2e710d4b2bd87fc9/information-sign.svg");
             color: black;
         }
 

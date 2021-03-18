@@ -43,7 +43,7 @@
                 session_start();
                 if($_SESSION['logged']==true){
                     $currentUser = $_SESSION["username"];
-                    echo '<a class="navbar-brand" href="includes-PHP/exit.php">'.$currentUser.'</a>';
+                    echo '<a class="navbar-brand" href="Includes-PHP/exit.php">'.$currentUser.'</a>';
                     
                 }
                 elseif($_SESSION['logged']==false){
@@ -70,7 +70,7 @@
                             <a class="nav-link" href="Alerts/sudoku.php">Game</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="includes-PHP/exit.php">Logout</a>
+                            <a class="nav-link" href="Includes-PHP/exit.php">Logout</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Redirec/Signup.php"></a>

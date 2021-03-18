@@ -7,17 +7,31 @@ $mail           = $_POST['mailEvent'];
 $eventLabel     = $_POST['deviceLabel'];
 $eventDevice    = $_POST['options'];
 $eventdate      = $_POST['dateofevent'];
-$eventfloor     = $_POST['floor'];
-$eventroom      = $_POST['room'];
+/* $eventfloor     = $_POST['floor'];
+$eventroom      = $_POST['room']; */
+$eventroom      = $_POST['optionsroom'];
 $gravity        = $_POST['options2'];
 $eventdecrip    = $_POST['descrip'];
+
+// Slecting the room floor by the room id in the form
+$queryRoom = "select floorRoom from room where idRoom='$eventroom';";
+$resultRoom = mysqli_query($conndb,$queryRoom);
+$resultCheckRoom = mysqli_num_rows($resultRoom);
+
+if ($resultCheckRoom > 0){
+    while ($rowRoom = mysqli_fetch_array($resultRoom)){
+        $eventfloor = $rowRoom['floorRoom'];
+    }
+}
+
+
 
 $errorLog = "YOU HAVEN'T LOGED-IN";
 $erroRoom = "Invalid Room ID";
 
 
 // Code to get the userID of who is making the events report
-$query = "SELECT idUser FROM usere WHERE nameUser = '$user';";
+$query = "SELECT idUser FROM userE WHERE nameUser = '$user';";
 $result = mysqli_query($conndb,$query);
 $resultCheck = mysqli_num_rows($result);
 
@@ -37,7 +51,7 @@ if ($resultCheck2 > 0){
     while ($row2 = mysqli_fetch_array($result2)){
 
         if (in_array("$eventroom",$row2)){
-            if ($_SESSION['logged'] == true) {
+		if ($_SESSION['logged'] == true) {
                 $sql = "INSERT INTO events (userEvento,mailEvento,device,eventDate,descripEvent,importanceEvent,idRoom,floorRoom,label,idUser) VALUES ('$user','$mail','$eventDevice','$eventdate','$eventdecrip','$gravity','$eventroom','$eventfloor','$eventLabel','$idUser')";
                 mysqli_query($conndb, $sql);
                 //header("Location: ../Alerts/descripevent.php");
@@ -48,7 +62,7 @@ if ($resultCheck2 > 0){
                 header("Location: ../Redirec/Login.php");
             }
         }else{
-            header("Location: ../alerts/invalidroom.php");
+            header("Location: ../Alerts/invalidroom.php");
             break;
         }
         

@@ -14,15 +14,15 @@ $errorPass = "PASSWORDS DON'T MATCH";
 $validEmail = explode("@", $mail);
 if ($validEmail[1] != "inspedralbes.cat") {
     $_SESSION["error"] = $errorLog;
-    header("Location: ../Redirec/signup.php");
+    header("Location: ../Redirec/Signup.php");
 } else {
     if ($pass === $pass2) {
         // success
-        $sql = "INSERT INTO usere (nameUser,mailUser,passwordUser) VALUES ('$name','$mail', MD5('$pass'))";
+        $sql = "INSERT INTO userE (nameUser,mailUser,passwordUser) VALUES ('$name','$mail', MD5('$pass'))";
         mysqli_query($conndb, $sql);
         header("Location: ../index.php?=successSignUp");
     } else {
         $_SESSION["error"] = $errorPass;
-        header("Location: ../Redirec/signup.php");
+        header("Location: ../Redirec/Signup.php");
     }
 }
