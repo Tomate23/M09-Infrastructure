@@ -121,7 +121,59 @@
                 </div>
                 <div class="col-md-12">
                     <div class="featured-carousel owl-carousel">
+
+			<?php
+
+			include_once './Includes-PHP/connection.php';
+			// Printing the event's information from the database
+			$sql = "select * from events";
+			$result = mysqli_query($conndb,$sql);
+			$resultCheck = mysqli_num_rows($result);
+
+			if ($resultCheck > 0){
+				while ($row = mysqli_fetch_array($result)){
+
+                    $image = "background-image: url('/img/hardware.jpg');";
+
+                    $label = $row['label'];
+                    $importance = $row['importanceEvent'];
+                    $user = $row['userEvento'];
+
+                    $fulldate = $row['eventDate'];
+                    $splitDate = explode("-", $fulldate);
+
+                    $year = $splitDate[0];
+                    $month = $splitDate[1];
+                    $day = $splitDate[2];
+                    echo '
                         <div class="item">
+                            <div class="blog-entry">
+                                <a href="#" class="block-20 d-flex align-items-start" style="'.$image.'">
+                                    <div class="meta-date text-center p-2">
+                                        <span class="day">'.$day.'</span>
+                                        <span class="mos">'.$month.'</span>
+                                        <span class="yr">'.$year.'</span>
+                                    </div>
+                                </a>
+                                <div class="text border border-top-0 p-4">
+                                    <h3 class="heading"><a href="#">'.$label.'</a></h3>
+                                    <p>' .$importance. '</p>
+                                    <div class="d-flex align-items-center mt-4">
+                                        <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span
+                                                    class="ion-ios-arrow-round-forward"></span></a></p>
+                                        <p class="ml-auto meta2 mb-0">
+                                            <a href="#" class="mr-2">'.$user.'</a>
+                                            <a href="#" class="meta-chat"><span class="ion-ios-chatboxes"></span> 3</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>';
+				}
+			}
+			?>
+
+                        <!-- <div class="item">
                             <div class="blog-entry">
                                 <a href="#" class="block-20 d-flex align-items-start" style="background-image: url('img/cableado.jpg');">
                                     <div class="meta-date text-center p-2">
@@ -144,9 +196,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="item">
+                        <!-- <div class="item">
                             <div class="blog-entry">
                                 <a href="#" class="block-20 d-flex align-items-start" style="background-image: url('img/teclado.jpg');">
                                     <div class="meta-date text-center p-2">
@@ -269,7 +321,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
+
                     </div>
                 </div>
             </div>
