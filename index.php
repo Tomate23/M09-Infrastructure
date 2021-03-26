@@ -128,12 +128,23 @@
 			// Printing the event's information from the database
 			$sql = "select * from events";
 			$result = mysqli_query($conndb,$sql);
-			$resultCheck = mysqli_num_rows($result);
+            $resultCheck = mysqli_num_rows($result);
+            
+            /* $images = array("'img/cableado.jpg'","'img/teclado.jpg'","'/img/hardware.jpg'","'img/image_6.jpg'");
+            foreach ($images as $ranimage){
+                
+            } */
+            $images = array("'img/cableado.jpg'","'img/teclado.jpg'","'/img/hardware.jpg'","'img/image_6.jpg'");
+
+            
+
+            $ranimage = $images[array_rand($images)];
 
 			if ($resultCheck > 0){
 				while ($row = mysqli_fetch_array($result)){
 
-                    $image = "background-image: url('/img/hardware.jpg');";
+                    //$image = "background-image: url('/img/hardware.jpg');";
+
 
                     $label = $row['label'];
                     $importance = $row['importanceEvent'];
@@ -146,10 +157,13 @@
                     $year = $splitDate[0];
                     $month = $splitDate[1];
                     $day = $splitDate[2];
+                    
+
+                    foreach(range(0, $arrayLenght) as $index){}
                     echo '
                         <div class="item">
                             <div class="blog-entry">
-                                <a href="#" class="block-20 d-flex align-items-start" style="'.$image.'">
+                                <a href="#" class="block-20 d-flex align-items-start" style="background-image: url('.$ranimage.');">
                                     <div class="meta-date text-center p-2">
                                         <span class="day">'.$day.'</span>
                                         <span class="mos">'.$month.'</span>
