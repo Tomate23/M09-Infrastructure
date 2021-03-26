@@ -23,8 +23,3 @@ include_once './connection.php';
     $_SESSION["error"] = $error;
     header("Location: ../Redirec/Login.php");
  }
-
- /* $_SESSION['logged']=true;
-    $_SESSION ['username']=$name;
-    echo "Usuario validado correctamente";
-    header("Location: ../index.php?=SuccessSignin"); */

@@ -7,8 +7,6 @@ $mail           = $_POST['mailEvent'];
 $eventLabel     = $_POST['deviceLabel'];
 $eventDevice    = $_POST['options'];
 $eventdate      = $_POST['dateofevent'];
-/* $eventfloor     = $_POST['floor'];
-$eventroom      = $_POST['room']; */
 $eventroom      = $_POST['optionsroom'];
 $gravity        = $_POST['options2'];
 $eventdecrip    = $_POST['descrip'];
@@ -24,11 +22,8 @@ if ($resultCheckRoom > 0){
     }
 }
 
-
-
 $errorLog = "YOU HAVEN'T LOGED-IN";
 $erroRoom = "Invalid Room ID";
-
 
 // Code to get the userID of who is making the events report
 $query = "SELECT idUser FROM userE WHERE nameUser = '$user';";
@@ -42,7 +37,7 @@ if ($resultCheck > 0){
 }
 
 // Code to get a valid idRoom, this has to be in the DDBB
-$query2 = "SELECT idRoom FROM room;";
+$query2 = "SELECT * FROM room;";
 $result2 = mysqli_query($conndb,$query2);
 $resultCheck2 = mysqli_num_rows($result2);
 
@@ -54,23 +49,17 @@ if ($resultCheck2 > 0){
 		if ($_SESSION['logged'] == true) {
                 $sql = "INSERT INTO events (userEvento,mailEvento,device,eventDate,descripEvent,importanceEvent,idRoom,floorRoom,label,idUser) VALUES ('$user','$mail','$eventDevice','$eventdate','$eventdecrip','$gravity','$eventroom','$eventfloor','$eventLabel','$idUser')";
                 mysqli_query($conndb, $sql);
-                //header("Location: ../Alerts/descripevent.php");
                 include '../Alerts/descripevent.php';
-                break;
             }else {
                 $_SESSION["errorlogin"] = $errorLog;
                 header("Location: ../Redirec/Login.php");
             }
         }else{
-            header("Location: ../Alerts/invalidroom.php");
-            break;
+            echo "Unknown ERROR";
+            
+            
         }
         
     }
 } 
 ?>
-
-
-
-
-        

@@ -138,6 +138,7 @@
                     $label = $row['label'];
                     $importance = $row['importanceEvent'];
                     $user = $row['userEvento'];
+                    $descripE = $row['descripEvent'];
 
                     $fulldate = $row['eventDate'];
                     $splitDate = explode("-", $fulldate);
@@ -157,7 +158,7 @@
                                 </a>
                                 <div class="text border border-top-0 p-4">
                                     <h3 class="heading"><a href="#">'.$label.'</a></h3>
-                                    <p>' .$importance. '</p>
+                                    <p>' .$descripE. '</p>
                                     <div class="d-flex align-items-center mt-4">
                                         <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span
                                                     class="ion-ios-arrow-round-forward"></span></a></p>
@@ -404,7 +405,7 @@
         </div>
     </section>
 
-    <section class="ftco-section">
+    <!-- <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-7 text-center mb-5">
@@ -415,7 +416,7 @@
                 <div class="col-lg-4 d-flex justify-content-center align-items-center">
                     <select multiple data-placeholder="Sección">
                         <option>Perifericos</option>
-                        <!-- <option selected>Framer X</option> -->
+                        <option selected>Framer X</option>
                         <option>Laptops</option>
                         <option>Torres</option>
                         <option>Wifi</option>
@@ -424,7 +425,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="body">
         <div class="grid">
@@ -454,6 +455,7 @@
                     </div>
                 </div>
             </div>
+            
             <!-- <div class="grid__item">
                 <div class="card"><img class="card__img" src="./img/Categories/projector.jpg" alt="Canyons">
                     <div class="card__content">
@@ -494,8 +496,5 @@
     <script src="js/bootstrapDROP.min.js"></script>
     <script src="js/mainDROP.js"></script>
 
-
-
 </body>
-
 </html>

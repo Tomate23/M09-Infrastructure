@@ -423,13 +423,7 @@ if (isset($_SESSION['logged'])) {
                 </div>';
                 }
                 ?>
-                <!-- <input type="text" name="eventName" required="required" /><span class="highlight"></span><span class="bar"></span>
-                <label>Name</label> -->
-                <!-- </div> -->
-                <!-- <div class="group">
-                <input type="text" name="mailEvent" required="required" /><span class="highlight"></span><span class="bar"></span>
-                <label>Email</label>
-            </div> -->
+                
                 <div class="group">
                     <input type="text" name="deviceLabel" required="required" /><span class="highlight"></span><span class="bar"></span>
                     <label>Device Label</label>
@@ -461,24 +455,14 @@ if (isset($_SESSION['logged'])) {
             <select name="optionsroom" required>
                 <option value="0">Room:</option>
                 <option value="ASIX-07">ASIX-07</option>
+                <option value="BTX-01">BTX-01</option>
+                <option value="BTX-02">BTX-02</option>
                 <option value="DAMV-01">DAMV-01</option>
-                <!-- <option value="Es pot treballar però és bastant incomode.">Es pot treballar però és bastant incomode.</option>
-                <option value="A vegades molesta, però podem anar fent.">A vegades molesta, però podem anar fent.</option>
-                <option value="És un problema bàsicament estètic, no molesta gaire.">És un problema bàsicament estètic, no molesta gaire.</option> -->
+                <option value="ESO-01">ESO-01</option>
+                <option value="ESO-02">ESO-02</option>
             </select>
         </div>
         <br>
-		
-		<!-- <div class="group">
-                    <input type="number" min="-1" max="4" name="floor" required="required" /><span class="highlight"></span><span class="bar"></span>
-                    <label>Floor Number</label>
-		</div>
-
-                <div class="group">
-                    <input type="text" name="room" required="required" /><span class="highlight"></span><span class="bar"></span>
-                    <label>Room ID</label>
-                </div> -->
-
                 <div class="custom-select" style="width:200px; border-radius:3px;">
                     <select name="options2" required>
                         <option value="0">Gravedad:</option>
@@ -584,7 +568,5 @@ if (isset($_SESSION['logged'])) {
         then close all select boxes:*/
         document.addEventListener("click", closeAllSelect);
     </script>
-
 </body>
-
 </html>
