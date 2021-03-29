@@ -13,7 +13,7 @@ CREATE TABLE userE (
     mailUser VARCHAR(255) NOT NULL,
     passwordUser VARCHAR(255) NOT NULL,
 
-    idRole int  NULL,
+    idRole int NULL,
 
     PRIMARY KEY (idUser),
     CONSTRAINT FK_roleUSer FOREIGN KEY (idRole) REFERENCES roleUser(idRole)

@@ -7,16 +7,17 @@ include_once './connection.php';
  $error = "INVALID INFORMATION";
 
  $sql = "SELECT * FROM userE WHERE nameUser='$name' AND passwordUser=MD5('$password');";
+ 
+
  $result = mysqli_query($conndb,$sql);
  $resultCheck = mysqli_num_rows($result);
 
  if ($resultCheck > 0) {
    while ($row = mysqli_fetch_array($result)){
       $_SESSION['logged']=true;
-      $_SESSION["usermail"]=$row['mailUser'];
-      $_SESSION ['username']=$name;
-
-      header("Location: ../index.php?=SuccessSignin");
+      $_SESSION['idRole']=$row['idRole'];
+      $_SESSION['username']=$row['nameUser'];
+      header("Location: ../index.php");
    }
  }
  else {

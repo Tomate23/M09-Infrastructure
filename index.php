@@ -43,6 +43,7 @@
                 session_start();
                 if($_SESSION['logged']==true){
                     $currentUser = $_SESSION["username"];
+                    $role = $_SESSION['idRole'];
                     echo '<a class="navbar-brand" href="Includes-PHP/exit.php">'.$currentUser.'</a>';
                     
                 }
@@ -64,7 +65,7 @@
                         </a>
                     </li>
                     <?php
-                    if($_SESSION['logged']==true){
+                    if($_SESSION['logged']){
                         echo '
                         <li class="nav-item">
                             <a class="nav-link" href="Alerts/sudoku.php">Game</a>
@@ -73,7 +74,7 @@
                             <a class="nav-link" href="Includes-PHP/exit.php">Logout</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Redirec/Signup.php"></a>
+                            <a class="nav-link" href="Redirec/AdminPage.php">'.$role.'</a>
                         </li>
                         ';
                     }else{
