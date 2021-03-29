@@ -74,7 +74,7 @@
                             <a class="nav-link" href="Includes-PHP/exit.php">Logout</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Redirec/AdminPage.php">'.$role.'</a>
+                            <a class="nav-link" href="Redirec/AdminPage.php">Admin</a>
                         </li>
                         ';
                     }else{
