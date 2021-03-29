@@ -114,15 +114,15 @@
         /* TITLE CSS */
         .title {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start;
+            justify-content: start;
             overflow: hidden;
-            width: 30vw;
+            width: 40vw;
             height: 30vh;
             color: #0FF369;
             background-color: var(--bg-color);
             font-family: "Maitree", serif;
-            /* background-color: red; */
+            /* background-color: yellow; */
         }
 
         h1 {
@@ -191,6 +191,82 @@
                 transform: translateX(200%);
             }
         }
+
+        .dash {
+            /* background-color: red; */
+        }
+
+        .draw-border {
+            box-shadow: inset 0 0 0 4px #58afd1;
+            color: #58afd1;
+            transition: color 0.25s 0.0833333333s;
+            position: relative;
+        }
+
+        .draw-border::before,
+        .draw-border::after {
+            border: 0 solid transparent;
+            box-sizing: border-box;
+            content: "";
+            pointer-events: none;
+            position: relative;
+            width: 0;
+            height: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .draw-border::before {
+            border-bottom-width: 3px;
+            border-left-width: 3px;
+        }
+
+        .draw-border::after {
+            border-top-width: 3px;
+            border-right-width: 3px;
+        }
+
+        .draw-border:hover {
+            color: #ffe593;
+        }
+
+        .draw-border:hover::before,
+        .draw-border:hover::after {
+            border-color: green;
+            transition: border-color 0s, width 0.25s, height 0.25s;
+            width: 100%;
+            height: 100%;
+        }
+
+        .draw-border:hover::before {
+            transition-delay: 0s, 0s, 0.25s;
+        }
+
+        .draw-border:hover::after {
+            transition-delay: 0s, 0.25s, 0s;
+        }
+
+        .btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            line-height: 1.5;
+            font: 600 1.2rem "Roboto Slab", sans-serif;
+            padding: 1em 2em;
+            letter-spacing: 0.05rem;
+        }
+
+        .btn:focus {
+            outline: 2px dotted #55d7dc;
+        }
+
+        body {
+            background: #1f1a25;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+        }
     </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -204,51 +280,60 @@
             <span>Events Pedralbes</span>
             <span>Administrator's Page</span>
         </h1>
+        <a href="../index.php">
+            <button class="btn draw-border">Home</button>
+        </a>
+
     </div>
-    <div class="container">
-        <div class="card">
-            <div class="face face1">
-                <div class="content">
-                    <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/design_128.png?raw=true">
-                    <h3>Suppliers</h3>
+
+    <section class="dash">
+        <div class="container">
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/design_128.png?raw=true">
+                        <h3>Suppliers</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
+                        <a href="#">Read More</a>
+                    </div>
                 </div>
             </div>
-            <div class="face face2">
-                <div class="content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
-                    <a href="#">Read More</a>
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/code_128.png?raw=true">
+                        <h3>EventsMGMT</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/launch_128.png?raw=true">
+                        <h3>Launch</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
+                        <a href="#">Read More</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="card">
-            <div class="face face1">
-                <div class="content">
-                    <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/code_128.png?raw=true">
-                    <h3>EventsMGMT</h3>
-                </div>
-            </div>
-            <div class="face face2">
-                <div class="content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
-                    <a href="#">Read More</a>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="face face1">
-                <div class="content">
-                    <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/launch_128.png?raw=true">
-                    <h3>Launch</h3>
-                </div>
-            </div>
-            <div class="face face2">
-                <div class="content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
-                    <a href="#">Read More</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    </section>
+
+
 </body>
 
 </html>

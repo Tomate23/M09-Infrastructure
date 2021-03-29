@@ -1,5 +1,5 @@
 CREATE TABLE roleUser (
-    idRole int NOT NULL AUTO_INCREMENT,
+    idRole VARCHAR (50) NOT NULL,
     roleUser VARCHAR(5) NOT NULL,
     descripRole VARCHAR(50) NOT NULL,
 
@@ -13,7 +13,7 @@ CREATE TABLE userE (
     mailUser VARCHAR(255) NOT NULL,
     passwordUser VARCHAR(255) NOT NULL,
 
-    idRole int NULL,
+    idRole VARCHAR (50) NULL,
 
     PRIMARY KEY (idUser),
     CONSTRAINT FK_roleUSer FOREIGN KEY (idRole) REFERENCES roleUser(idRole)
