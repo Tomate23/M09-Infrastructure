@@ -65,7 +65,7 @@
                         </a>
                     </li>
                     <?php
-                    if($_SESSION['logged']){
+                    if($_SESSION['logged'] && $role=="adm"){
                         echo '
                         <li class="nav-item">
                             <a class="nav-link" href="Alerts/sudoku.php">Game</a>
@@ -77,7 +77,18 @@
                             <a class="nav-link" href="Redirec/AdminPage.php">Admin</a>
                         </li>
                         ';
-                    }else{
+                    }
+                    elseif($_SESSION['logged'] && $role!="adm"){
+                        echo '
+                        <li class="nav-item">
+                            <a class="nav-link" href="Alerts/sudoku.php">Game</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Includes-PHP/exit.php">Logout</a>
+                        </li>
+                        ';
+                    }
+                    else{
                         echo '
                         <li class="nav-item">
                             <a class="nav-link" href="Redirec/Login.php">Login</a>
