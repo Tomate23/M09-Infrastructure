@@ -454,10 +454,10 @@ if (isset($_SESSION['logged'])) {
         <div class="custom-select" style="width:200px; border-radius:3px;">
             <select name="optionsroom" required>
                 <option value="0">Room:</option>
-                <option value="ASIX-07">ASIX-07</option>
+		<option value="ASIX-06">ASIX-06</option>
+		<option value="ASIX-07">ASIX-07</option>
                 <option value="BTX-01">BTX-01</option>
                 <option value="BTX-02">BTX-02</option>
-                <option value="DAMV-01">DAMV-01</option>
                 <option value="ESO-01">ESO-01</option>
                 <option value="ESO-02">ESO-02</option>
             </select>

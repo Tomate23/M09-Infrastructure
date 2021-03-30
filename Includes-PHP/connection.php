@@ -2,7 +2,7 @@
     $server="132.145.55.206";
     $username="tomate2";
     $password="Roma00josue23&";
-    $db="events";
+    $db="events2";
 
     $conndb=mysqli_connect($server,$username,$password,$db);
 

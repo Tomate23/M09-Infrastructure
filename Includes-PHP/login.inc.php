@@ -17,7 +17,9 @@ include_once './connection.php';
       $_SESSION['logged']=true;
       $_SESSION['idRole']=$row['idRole'];
       $_SESSION['username']=$row['nameUser'];
+      $_SESSION['usermail']=$row['mailUser'];
       header("Location: ../index.php");
+      header("Location: ../Redirec/HardwareForm2.php");
    }
  }
  else {
