@@ -87,7 +87,7 @@
                             <a class="nav-link" href="Includes-PHP/exit.php">Logout</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Redirec/Usersevents">My Events</a>
+                            <a class="nav-link" href="Redirec/Usersevents.php">My Events</a>
                         </li>
                         ';
                     }
