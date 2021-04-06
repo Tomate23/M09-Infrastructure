@@ -74,6 +74,11 @@
 <body>
     <div class="title">
         <h1>Your Events</h1>
+        <div class="home">
+            <a href="./index.php">
+                Go Home
+            </a>
+        </div>
     </div>
     
     <div class="containerEvents">
