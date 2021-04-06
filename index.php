@@ -86,6 +86,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="Includes-PHP/exit.php">Logout</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Redirec/Usersevents">My Events</a>
+                        </li>
                         ';
                     }
                     else{
@@ -105,9 +108,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="Redirec/Signup.php">SignUp</a>
                     </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">My Events</a>
-                    </li>
                 </ul>
             </div>
         </div>
