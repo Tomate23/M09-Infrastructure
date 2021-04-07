@@ -43,16 +43,18 @@
   transform: rotateY(180deg);
 }
 .title{
-    background-color:red;
+    /* background-color:red; */
 
-    display:flex;
+    /* display:flex; */
     margin-bottom:5px;
     justify-content: center;
     align-items: center;
+    position: relative;
+    text-align: center;
 
 }
 .containerEvents{
-    background-color:yellow;
+    /* background-color:yellow; */
     display:grid;
     grid-template-columns: repeat(4, 2fr);
     padding: 5px;
@@ -63,6 +65,80 @@
     align-content: space-evenly;
     align-items: center;
 }
+.home{
+    /* background-color: green; */
+}
+a {
+  display: block;
+  width: 250px;
+  font-family: sans-serif;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  line-height: 1.5rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+a span {
+  background-image: linear-gradient(to bottom, white 70%, transparent 70%), linear-gradient(to right, #7B7EAD 33%, #84A8C1 33%, #84A8C1 66%, #9BCCB9 66%);
+  background-size: 306% 100%;
+  background-position: 100% 0;
+  transition: 1s background-position;
+}
+a:hover span {
+  background-position: 0%;
+}
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+.maintitle{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    background-color: transparent;
+}
+.texttitle {
+  position: relative;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 2em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 4s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
 
 </style>
 
@@ -72,14 +148,34 @@
     <title>Your Events</title>
 </head>
 <body>
-    <div class="title">
-        <h1>Your Events</h1>
+    <?php
+    session_start();
+    if($_SESSION['logged']){
+        $currentUser = $_SESSION["username"];
+        echo '
+        <div class="title">
+            <div class="maintitle">
+                <p class="texttitle">'.$currentUser.' - Events</p>
+            </div>
+            <div class="home">
+                <a href="../index.php">
+                    <span>Go Home</span>
+                </a>
+            </div>
+        </div>
+        ';
+    }
+    ?>
+    <!-- <div class="title">
+        <div class="maintitle">
+            <p class="texttitle">Your Events</p>
+        </div>
         <div class="home">
             <a href="../index.php">
-                Go Home
+                <span>Go Home</span>
             </a>
         </div>
-    </div>
+    </div> -->
     
     <div class="containerEvents">
 
