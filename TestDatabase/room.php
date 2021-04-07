@@ -1,30 +1,18 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-        <title>Incidencias</title>
-</head
->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Database</title>
+</head>
 <body>
-<?php
-include_once '../Includes-PHP/connection.php';
-$sql = "Select * from room";
-$result = mysqli_query($conndb,$sql);
-$check = mysqli_num_rows($result);
-
-if ($check > 0) {
-        while ($row = mysqli_fetch_array($result)){
-                echo "<br>";
-                echo $row['idRoom'];
-                echo "<br>";
-                echo $row['floorRoom'];
-                echo "<br>";
-                //echo $row['label'];
-                //echo "<br>";
-        }
-}
-else {
-        echo "noData";
-}
-?>
+    <form action="action.php" method="post">
+      <label for="fname">Classe:</label><br>
+      <input type="text" id="fname" name="fname"><br>
+      <label for="lname">Pis:</label><br>
+      <input type="text" id="lname" name="lname"><br><br>
+      <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
-
