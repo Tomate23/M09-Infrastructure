@@ -179,7 +179,41 @@ body {
     
     <div class="containerEvents">
 
-        <div class="card">
+    <?php
+        include_once '../Includes-PHP/connection.php';
+        session_start();
+        if($_SESSION['logged']){
+            $currentUser = $_SESSION["username"];
+        }
+        $sql = "SELECT * FROM events WHERE userEvento='$currentUser';";
+        $result = mysqli_query($conndb, $sql);
+        $resultCheck = mysqli_num_rows($result);
+
+        if ($resultCheck > 0){
+            while ($row = mysqli_fetch_array($result)){
+                echo '
+                <div class="card">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="../img/advertencia.png" alt="Avatar" style="width:300px;height:300px;">
+                            </div>
+                                <div class="flip-card-back">
+                                <h1>'.$row['label'].'</h1> 
+                                <p>'.$row['device'].'</p> 
+                                <p>'.$row['eventDate'].'</p>
+                                <p>'.$row['idRoom'].'</p>
+                                <p>'.$row['descripEvent'].'</p>
+                                <p>'.$row['importanceEvent'].'</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                ';
+            }
+        }
+    ?>
+        <!-- <div class="card">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -237,7 +271,7 @@ body {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         
     </div>
 
