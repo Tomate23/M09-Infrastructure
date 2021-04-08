@@ -10,7 +10,7 @@
         }
 
 
-        body {
+        /* body {
             margin: 0;
             padding: 0;
             min-height: 100vh;
@@ -18,14 +18,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
             font-family: consolas;
-        }
+        } */
 
         .container {
             width: 1000px;
-            position: relative;
             display: flex;
+            align-items: center;
             justify-content: space-between;
+            height: 15rem;
         }
 
         .container .card {
@@ -114,15 +116,16 @@
         /* TITLE CSS */
         .title {
             display: flex;
-            align-items: flex-start;
+            align-items: flex-end;
             justify-content: start;
+            position: relative;
             overflow: hidden;
             width: 40vw;
             height: 30vh;
             color: #0FF369;
             background-color: var(--bg-color);
             font-family: "Maitree", serif;
-            /* background-color: yellow; */
+            background-color: yellow;
         }
 
         h1 {
@@ -265,6 +268,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
             min-height: 80vh;
         }
     </style>
@@ -275,17 +279,9 @@
 </head>
 
 <body>
-    <div class="title">
-        <h1 class="home-title">
-            <span>Events Pedralbes</span>
-            <span>Administrator's Page</span>
-        </h1>
         <a href="../index.php">
             <button class="btn draw-border">Home</button>
         </a>
-
-    </div>
-
     <section class="dash">
         <div class="container">
             <div class="card">
@@ -312,7 +308,7 @@
                 <div class="face face2">
                     <div class="content">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
-                        <a href="#">Read More</a>
+                        <a href="Eventsmgmt.php">Read More</a>
                     </div>
                 </div>
             </div>

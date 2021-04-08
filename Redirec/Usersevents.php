@@ -17,7 +17,7 @@
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 0px 0px 0 rgba(0,0,0,0.2);
 }
 
 .flip-card:hover .flip-card-inner {
@@ -33,13 +33,14 @@
 }
 
 .flip-card-front {
-  background-color: #bbb;
+ /*  background-color: #bbb; */
+ background-color: transparent;
   color: black;
 }
 
 .flip-card-back {
-  background-color: #2980b9;
-  color: white;
+  /* background-color: #2980b9; */
+  color: black;
   transform: rotateY(180deg);
 }
 .title{
@@ -130,6 +131,20 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: rgba(255, 255, 255, 0);
 }
+.texttitle2 {
+  position: relative;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 4s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
 
 @keyframes animate {
   0% {
@@ -202,7 +217,7 @@ body {
                                 <h1>'.$row['label'].'</h1> 
                                 <p>'.$row['device'].'</p> 
                                 <p>'.$row['eventDate'].'</p>
-                                <p>'.$row['idRoom'].'</p>
+                                <p class="texttitle2">'.$row['idRoom'].'</p>
                                 <p>'.$row['descripEvent'].'</p>
                                 <p>'.$row['importanceEvent'].'</p>
                             </div>
