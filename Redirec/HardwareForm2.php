@@ -423,7 +423,7 @@ if (isset($_SESSION['logged'])) {
                 </div>';
                 }
                 ?>
-                
+
                 <div class="group">
                     <input type="text" name="deviceLabel" required="required" /><span class="highlight"></span><span class="bar"></span>
                     <label>Device Label</label>
@@ -449,20 +449,20 @@ if (isset($_SESSION['logged'])) {
                 <br>
 
                 <label for="dateofbirth"></label>
-		<input type="date" name="dateofevent" id="dateofevent" required="required">
-        <br>
-        <div class="custom-select" style="width:200px; border-radius:3px;">
-            <select name="optionsroom" required>
-                <option value="0">Room:</option>
-		<option value="ASIX-06">ASIX-06</option>
-		<option value="ASIX-07">ASIX-07</option>
-                <option value="BTX-01">BTX-01</option>
-                <option value="BTX-02">BTX-02</option>
-                <option value="ESO-01">ESO-01</option>
-                <option value="ESO-02">ESO-02</option>
-            </select>
-        </div>
-        <br>
+                <input type="date" name="dateofevent" id="dateofevent" required="required">
+                <br>
+                <div class="custom-select" style="width:200px; border-radius:3px;">
+                    <select name="optionsroom" required>
+                        <option value="0">Room:</option>
+                        <option value="ASIX-06">ASIX-06</option>
+                        <option value="ASIX-07">ASIX-07</option>
+                        <option value="BTX-01">BTX-01</option>
+                        <option value="BTX-02">BTX-02</option>
+                        <option value="ESO-01">ESO-01</option>
+                        <option value="ESO-02">ESO-02</option>
+                    </select>
+                </div>
+                <br>
                 <div class="custom-select" style="width:200px; border-radius:3px;">
                     <select name="options2" required>
                         <option value="0">Gravedad:</option>
@@ -569,4 +569,5 @@ if (isset($_SESSION['logged'])) {
         document.addEventListener("click", closeAllSelect);
     </script>
 </body>
+
 </html>
