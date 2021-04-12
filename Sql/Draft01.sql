@@ -87,6 +87,32 @@ CREATE TABLE events (
     */
 );
 
-/* CREATE TABLE DeletedEvents (
+CREATE TABLE DeletedEvents (
+    idEvent VARCHAR(5) NOT NULL,
+    userEvento VARCHAR(50) NOT NULL,
+    mailEvento VARCHAR(255) NOT NULL,
+    device VARCHAR(50) NOT NULL,
+    eventDate DATE NOT NULL,
 
-); */
+    descripEvent VARCHAR(255) NOT NULL,
+    importanceEvent VARCHAR(255) NOT NULL,
+
+    idRoom VARCHAR(10) NOT NULL,
+    floorRoom int(5) NOT NULL,
+    label VARCHAR(50) NOT NULL,
+    idUser int NOT NULL,
+    PRIMARY KEY (idEvent)
+);
+
+/* Creation of the trigger */
+DELIMITER $$
+
+CREATE TRIGGER delete_Events
+BEFORE DELETE
+ON events FOR EACH ROW
+BEGIN
+	INSERT INTO DeletedEvents (idEvent,userEvento,mailEvento,device,eventDate,descripEvent,importanceEvent,idRoom,floorRoom,label,idUser)
+    VALUES (old.idEvent,old.userEvento,old.mailEvento,old.device,old.eventDate,old.descripEvent,old.importanceEvent,old.idRoom,old.floorRoom,old.label,old.idUser);
+END$$    
+
+DELIMITER ;

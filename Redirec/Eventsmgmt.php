@@ -583,6 +583,7 @@
           <option value="BTX-02">BTX-02</option>
           <option value="ESO-01">ESO-01</option>
           <option value="ESO-02">ESO-02</option>
+          <option value="deleted">Deleted</option>
         </select>
         <svg>
           <use xlink:href="#select-arrow-down"></use>
@@ -601,7 +602,13 @@
   </form>
 
   <div class="content">
-    <h1 class="heading">Events Administration</h1>
+  <?php
+    $filterValue = $_POST['filter'];
+    echo '
+    <h1 class="heading">'.$filterValue.': Administration</h1>
+    ';
+  ?>
+    <!-- <h1 class="heading">Events Administration</h1> -->
     <p class="description">
       Where administrators can manage the events.
       <a href="../index.php">Home</a>
@@ -613,9 +620,33 @@
     if ($_SESSION['logged']) {
       $currentUser = $_SESSION["username"];
     }
-
     $filterValue = $_POST['filter'];
 
+    /* if ($filterValue == "deleted"){
+      $sql = "SELECT * from DeletedEvents;";
+      $result = mysqli_query($conndb, $sql);
+      $resultCheck = mysqli_num_rows($result);
+
+      if ($resultCheck > 0){
+        while ($row = mysqli_fetch_array($result)){
+          echo '
+          </a><a class="card" href="#">
+          <div class="front" style="background-image: url(https://picsum.photos/id/870/200/300?grayscale&blur=1)">
+            <p class="fronttitle">' .$row['label'] .'</p>
+          </div>
+          <div class="back">
+            <div>
+              <p>User: '.$row['userEvento'].'</p>
+              <p>Description: '.$row['descripEvent'].'</p>
+              <p>Date: '.$row['eventDate'].'</p>
+              <p>Importance: '.$row['importanceEvent'].'</p>
+              <button class="button">Delete</button>
+            </div>
+          </div>
+          ';
+        }
+      }
+    } */
 
     $sql = "SELECT * from events WHERE idRoom = '$filterValue';";
     $result = mysqli_query($conndb, $sql);
@@ -635,11 +666,38 @@
                 <p>Description: '.$row['descripEvent'].'</p>
                 <p>Date: '.$row['eventDate'].'</p>
                 <p>Importance: '.$row['importanceEvent'].'</p>
+                <p>Room: '.$row['idRoom'].'</p>
                 <button class="button">Delete</button>
               </div>
             </div>
           ';
       }
+    } elseif ($filterValue == "deleted"){
+      $sql = "SELECT * from DeletedEvents;";
+      $result = mysqli_query($conndb, $sql);
+      $resultCheck = mysqli_num_rows($result);
+
+      if ($resultCheck > 0){
+        while ($row = mysqli_fetch_array($result)){
+          echo '
+          </a><a class="card" href="#">
+          <div class="front" style="background-image: url(https://picsum.photos/id/870/200/300?grayscale&blur=1)">
+            <p class="fronttitle">' .$row['label'] .'</p>
+          </div>
+          <div class="back">
+            <div>
+              <p>User: '.$row['userEvento'].'</p>
+              <p>Description: '.$row['descripEvent'].'</p>
+              <p>Date: '.$row['eventDate'].'</p>
+              <p>Importance: '.$row['importanceEvent'].'</p>
+              <p>Room: '.$row['idRoom'].'</p>
+              <button class="button">Delete</button>
+            </div>
+          </div>
+          ';
+        }
+      }
+
     } else {
       echo '
       <div class="errorContainer">
