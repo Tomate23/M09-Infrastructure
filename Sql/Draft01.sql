@@ -86,3 +86,7 @@ CREATE TABLE events (
     --  We understand that one user could have one or more events, but the user only can create on event at the time
     */
 );
+
+/* CREATE TABLE DeletedEvents (
+
+); */
