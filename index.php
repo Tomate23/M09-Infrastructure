@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,6 +73,12 @@
                             <a class="nav-link" href="Includes-PHP/exit.php">Logout</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="Redirec/Usersevents.php">My Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Redirec/Settings.php">Settings</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="Redirec/AdminPage.php">Admin</a>
                         </li>
                         ';
@@ -88,6 +93,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Redirec/Usersevents.php">My Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Redirec/Settings.php">Settings</a>
                         </li>
                         ';
                     }
@@ -459,7 +467,7 @@
                 <div class="card"><img class="card__img" src="./img/Categories/keyboard.jpg" alt="Snowy Mountains">
                     <div class="card__content">
                         <h1 class="card__header">Hardware</h1>
-                        <p class="card__text">Look up at the night sky, and find yourself <strong>immersed</strong> in the amazing mountain range of Aspen.</p>
+                        <p class="card__text">2B || !2B <strong>That the Question</strong></p>
                         <a class="card__btn" href="./Redirec/HardwareForm2.php">Explore<span>&rarr;</span>
                         </a>
                     </div>
@@ -469,7 +477,7 @@
                 <div class="card"><img class="card__img" src="./img/Categories/software.jpeg" alt="Desert">
                     <div class="card__content">
                         <h1 class="card__header">Software</h1>
-                        <p class="card__text">Capture the stunning <strong>essence</strong> of the early morning sunrise in the Californian wilderness.</p><button class="card__btn">Explore <span>&rarr;</span></button>
+                        <p class="card__text">while ( ! ( succeed = <strong>try ()</strong> ) );</p><button class="card__btn">Explore <span>&rarr;</span></button>
                     </div>
                 </div>
             </div>
@@ -477,7 +485,7 @@
                 <div class="card"><img class="card__img" src="./img/Categories/equipment.jpg" alt="Canyons">
                     <div class="card__content">
                         <h1 class="card__header">Equipamiento</h1>
-                        <p class="card__text">Sunsets over the <strong>stunning</strong> Utah Canyonlands, is truly something much more than incredible.</p><button class="card__btn">Explore <span>&rarr;</span></button>
+                        <p class="card__text">There is no place like <strong>127.0.0.1</strong></p><button class="card__btn">Explore <span>&rarr;</span></button>
                     </div>
                 </div>
             </div>

@@ -679,8 +679,9 @@
 
       if ($resultCheck > 0){
         while ($row = mysqli_fetch_array($result)){
+          $id = $row['idEvent'];
           echo '
-          </a><a class="card" href="#">
+          </a><a class="card" href="../Includes-PHP/Delete2.php?id='.$id.'">
           <div class="front" style="background-image: url(https://picsum.photos/id/870/200/300?grayscale&blur=1)">
             <p class="fronttitle">' .$row['label'] .'</p>
           </div>

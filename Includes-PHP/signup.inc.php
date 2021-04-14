@@ -10,6 +10,8 @@ $pass2 = $_POST['re-password'];
 $errorLog = "INVALID EMAIL";
 $errorPass = "PASSWORDS DON'T MATCH";
 
+
+
 // let's validate the allowed email inspedralbes.cat
 $validEmail = explode("@", $mail);
 if ($validEmail[1] != "inspedralbes.cat") {
