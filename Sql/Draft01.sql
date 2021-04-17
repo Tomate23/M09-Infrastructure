@@ -104,6 +104,25 @@ CREATE TABLE DeletedEvents (
     PRIMARY KEY (idEvent)
 );
 
+CREATE TABLE Supplier (
+    idSupp int NOT NULL AUTO_INCREMENT,
+    nameSupp VARCHAR(50) NOT NULL,
+    phoneSupp int(9) NOT NULL,
+    productSupp VARCHAR(255) NOT NULL,
+    mailSupp VARCHAR(255) NOT NULL,
+    addressSupp VARCHAR(100) NOT NULL,
+    billSupp VARCHAR(250) DEFAULT NULL,
+    imgSupp VARCHAR(250) DEFAULT NULL,
+    
+    
+    PRIMARY KEY (idSupp)
+);
+
+/* 
+ALTER TABLE Supplier ALTER imgSupp SET DEFAULT 'https://i.postimg.cc/15b7GMSh/noimg.jpg';
+UPDATE `Supplier` SET `imgSupp` = '(IMG-URL)' WHERE `Supplier`.`idSupp` = (NUMBER);
+ */
+
 /* Creation of the trigger */
 DELIMITER $$
 
