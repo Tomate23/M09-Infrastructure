@@ -221,7 +221,18 @@ body {
         if($_SESSION['logged']){
             $currentUser = $_SESSION["username"];
         }
-        $sql = "SELECT * FROM events WHERE userEvento='$currentUser';";
+
+        $getID = "SELECT idUser FROM userE WHERE nameUser='$currentUser';";
+        $resultID = mysqli_query($conndb, $getID);
+        $resultCheckID = mysqli_num_rows($resultID);
+        if($resultCheckID > 0){
+            while( $id = mysqli_fetch_array($resultID)){
+                $idUser = $id['idUser'];
+            }
+        }
+
+
+        $sql = "SELECT * FROM events WHERE idUser='$idUser';";
         $result = mysqli_query($conndb, $sql);
         $resultCheck = mysqli_num_rows($result);
 
