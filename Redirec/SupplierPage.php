@@ -20,6 +20,7 @@
 <nav class="bg-dark navbar-dark">
   <div class="container">
     <a href="../index.php" class="navbar-brand"><i class="fas fa-tree mr-2"></i>Home</a>
+    <a href="./Eventsmgmt.php" class="navbar-brand"><i class="fas fa-tree mr-2"></i>Eventsmgmt</a>
   </div>
 </nav>
 <section id="header" class="jumbotron text-center">

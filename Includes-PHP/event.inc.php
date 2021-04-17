@@ -11,6 +11,25 @@ $eventroom      = $_POST['optionsroom'];
 $gravity        = $_POST['options2'];
 $eventdecrip    = $_POST['descrip'];
 
+// Required field names
+$required = array('eventName', 'mailEvent', 'deviceLabel', 'options', 'dateofevent', 'optionsroom', 'options2', 'descrip');
+
+$error = "ERROR: All fields are required.";
+// Loop over field names, make sure each one exists and is not empty
+$errorForm = false;
+foreach($required as $field) {
+  if (empty($_POST[$field])) {
+    $errorForm = true;
+  }
+}
+
+if ($errorForm) {
+  $error="ERROR: All fields are required.";
+  $_SESSION["error"] = $error;
+  header("Location: ../Redirec/HardwareForm2.php");
+  exit();
+}
+
 // Slecting the room floor by the room id in the form
 $queryRoom = "select floorRoom from room where idRoom='$eventroom';";
 $resultRoom = mysqli_query($conndb,$queryRoom);

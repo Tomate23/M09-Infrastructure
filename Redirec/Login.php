@@ -67,7 +67,7 @@ session_start();
                         <div class="col-md-8">
                             <div class="mb-4">
                                 <h3>Sign In to <strong>PedralbesEvents</strong></h3>
-                                <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.
+                                <p class="mb-4">Sign in to report your events manage your information
                                 </p>
                             </div>
                             <form action="../Includes-PHP/login.inc.php" method="post">

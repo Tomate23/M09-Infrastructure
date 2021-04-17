@@ -65,6 +65,21 @@ body {
   transition: 0.5s;
 }
 
+.login-box .user-box-select select {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+
+
+
 .login-box .user-box input:focus ~ label,
 .login-box .user-box input:valid ~ label {
   top: -20px;
@@ -178,14 +193,8 @@ body {
     bottom: 100%;
   }
 }
-.valid {
+.errorMSG {
     background-color: #f44336;
-    text-transform: uppercase;
-    color: #000;
-    border: 1px solid black;
-}
-.valid2 {
-    background-color: green;
     text-transform: uppercase;
     color: #000;
     border: 1px solid black;
@@ -196,7 +205,7 @@ nav.primary-navigation {
   padding: 120px 0 0 0;
   text-align: center;
   font-size: 16px;
-  margin-top:-40px;
+  margin-top:-80px;
 }
 nav.primary-navigation ul li {
   list-style: none;
@@ -260,18 +269,21 @@ a:hover {
 ul li ul li a {
   transition: all 0.5s ease;
 }
+.opt{
+    color:#000;
+}
 </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
-    <title>Change Pass</title>
+    <title>Add Room</title>
 </head>
 <body>
 
 <nav role="navigation" class="primary-navigation">
   <ul>
-<?php
+  <?php
 ini_set( "display_errors", 0);
 session_start();
 if($_SESSION['logged']==true){
@@ -292,39 +304,64 @@ if($_SESSION['logged']==true){
       </ul> -->
       
     </li>
-    <li><a href="./UpdatePass.php">Change Password</a></li>
+    <li><a href="./UpdateUser.php">Change User</a></li>
     <li><a href="./UpdateMail.php">Change Mail</a></li>
+    <li><a href="./UpdatePass.php">Change Password</a></li>
     <?php
       if($_SESSION['logged'] && $role=="adm"){
       echo '
         <li><a href="./AddRoom.php">Add Room</a></li>
-        <li><a href="./AddComp.php">Add Component</a></li>
       ';
 
-  }
+      }
   ?>
   </ul>
 </nav>
 
 <div class="login-box">
-  <h2>Change User Form</h2>
+  <h2>Add Component Form</h2>
   <?php
-    if (isset($_SESSION['errorname'])){
-        $errormsg = $_SESSION['errorname'];
-        echo '<center class="valid">' . $errormsg . '</center>';
-        unset($_SESSION['errorname']);
+    if (isset($_SESSION['error'])){
+        $errormsg = $_SESSION['error'];
+        echo '<div class="errorMSG">' . $errormsg . '</div>';
+        unset($_SESSION['error']);
     }
     echo "<br>";
     ?>
-  <form action="../Includes-PHP/ChangeUser.php" method="post">
+  <form action="../Includes-PHP/AddCompSQL.php" method="post">
     <div class="user-box">
-      <input type="text" name="name" required>
-      <label>New User Name</label>
+      <input type="text" name="nameComp" required>
+      <label>Component Name</label>
     </div>
     <div class="user-box">
-      <input type="text" name="rename" required>
-      <label>Retype User Name</label>
+      <input type="text" name="descripComp" required>
+      <label>Small Description</label>
     </div>
+
+    <div class="user-box-select">
+    <select name="categ" id="cars" required="required">
+        <option class="opt" value="all" disabled="disabled" selected="selected">Category:</option>
+        <?php
+          include_once '../Includes-PHP/connection.php';
+          $sql = "select * from compCategory;";
+          $result = mysqli_query($conndb,$sql);
+          $resultCheck = mysqli_num_rows($result);
+          if($resultCheck > 0){
+              while($row = mysqli_fetch_array($result)){
+                  echo '
+                    <option class="opt" value="'.$row['idCategory'].'">'.$row['nameCategory'].'</option>
+                  ';
+              }
+          }
+          ?>
+        <!-- <option class="opt" value="volvo">Volvo</option>
+        <option class="opt" value="saab">Saab</option>
+        <option class="opt" value="opel">Opel</option>
+        <option class="opt" value="audi">Audi</option> -->
+    </select>
+    </div>
+    
+
     <button class="a" type="submit">
       <span></span>
       <span></span>

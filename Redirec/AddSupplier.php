@@ -171,13 +171,13 @@ body {
       <h2 class="animation a1">Add new Supplier</h2>
       <h4 class="animation a2">Please fill the form with the Supplier Information</h4>
       <?php
-    if (isset($_SESSION['error'])){
-        $errormsg = $_SESSION['error'];
-        echo '<div class="errorMSG">' . $errormsg . '</div>';
-        unset($_SESSION['error']);
-    }
-    echo "<br>";
-    ?>
+        if (isset($_SESSION['error'])){
+            $errormsg = $_SESSION['error'];
+            echo '<div class="errorMSG">' . $errormsg . '</div>';
+            unset($_SESSION['error']);
+        }
+        echo "<br>";
+      ?>
     </div>
 
     <form class="form" action="../Includes-PHP/AddSupp.php" method="post">

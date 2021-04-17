@@ -243,13 +243,13 @@ body {
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="../img/advertencia.png" alt="Avatar" style="width:300px;height:300px;">
+                                <img src="https://images.unsplash.com/photo-1580706483913-b6ea7db483a0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=637&q=80" style="width:300px;height:300px;">
                             </div>
                                 <div class="flip-card-back">
                                 <h1>'.$row['label'].'</h1> 
                                 <p>'.$row['device'].'</p> 
                                 <p>'.$row['eventDate'].'</p>
-                                <p class="texttitle2">'.$row['idRoom'].'</p>
+                                <p>'.$row['idRoom'].'</p>
                                 <p>'.$row['descripEvent'].'</p>
                                 <p>'.$row['importanceEvent'].'</p>
                             </div>

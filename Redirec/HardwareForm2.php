@@ -382,6 +382,12 @@ if (isset($_SESSION['logged'])) {
             font-weight: 100;
             font-style: normal;
         }
+        .errorMSG {
+            background-color: #f44336;
+            text-transform: uppercase;
+            color: #000;
+            border: 1px solid black;
+        }
     </style>
 
     <meta charset="UTF-8">
@@ -396,7 +402,17 @@ if (isset($_SESSION['logged'])) {
         <form action="../Includes-PHP/event.inc.php" method="post">
 
             <h1>Hardware Form Event</h1>
-            <h5>Inspired by Google's Material Design guidelines for text fields</h5>
+            <h5>Remenber to have all the <mark>information of the device</mark> </h5>
+
+            <?php
+                if (isset($_SESSION['error'])){
+                    $errormsg = $_SESSION['error'];
+                    echo '<div class="errorMSG">' . $errormsg . '</div>';
+                    unset($_SESSION['error']);
+                }
+                echo "<br>";
+            ?>
+
             <div class="btn-box"><a class="btn btn-link" href="../index.php">Go Home</a></div>
             <hr class="sep" />
             <div class="group">
@@ -432,7 +448,21 @@ if (isset($_SESSION['logged'])) {
                 <div class="custom-select" style="width:200px; border-radius:3px;">
                     <select name="options" required>
                         <option value="0">Select Device:</option>
-                        <option value="Keyboard">Keyboard</option>
+                        <?php
+                        include_once '../Includes-PHP/connection.php';
+                        $sql1 = "SELECT * FROM component;";
+                        $result1 = mysqli_query($conndb,$sql1);
+                        $resultCheck1 = mysqli_num_rows($result1);
+
+                        if($resultCheck1 > 0){
+                            while($row1 = mysqli_fetch_array($result1)){
+                                echo '
+                                    <option value="'.$row1['nameComponent'].'">'.$row1['nameComponent'].'</option>
+                                ';
+                            }
+                        }
+                        ?>
+                        <!-- <option value="Keyboard">Keyboard</option>
                         <option value="Mouse">Mouse</option>
                         <option value="Projector">Projector</option>
                         <option value="Speakers">Speakers</option>
@@ -441,7 +471,7 @@ if (isset($_SESSION['logged'])) {
                         <option value="Network">Network</option>
                         <option value="PC Case">PC Case</option>
                         <option value="Screen">Screen</option>
-                        <option value="Forniture">Forniture</option>
+                        <option value="Forniture">Forniture</option> -->
                     </select>
                 </div>
 
@@ -454,12 +484,27 @@ if (isset($_SESSION['logged'])) {
                 <div class="custom-select" style="width:200px; border-radius:3px;">
                     <select name="optionsroom" required>
                         <option value="0">Room:</option>
-                        <option value="ASIX-06">ASIX-06</option>
+
+                        <?php
+                        include_once '../Includes-PHP/connection.php';
+                        $sql = "select * from room;";
+                        $result = mysqli_query($conndb,$sql);
+                        $resultCheck = mysqli_num_rows($result);
+
+                        if($resultCheck > 0){
+                            while($row = mysqli_fetch_array($result)){
+                                echo '
+                                    <option value="'.$row['idRoom'].'">'.$row['idRoom'].'</option>
+                                ';
+                            }
+                        }
+                        ?>
+                        <!-- <option value="ASIX-06">ASIX-06</option>
                         <option value="ASIX-07">ASIX-07</option>
                         <option value="BTX-01">BTX-01</option>
                         <option value="BTX-02">BTX-02</option>
                         <option value="ESO-01">ESO-01</option>
-                        <option value="ESO-02">ESO-02</option>
+                        <option value="ESO-02">ESO-02</option> -->
                     </select>
                 </div>
                 <br>
@@ -482,7 +527,7 @@ if (isset($_SESSION['logged'])) {
                 <div class="btn-box">
                     <button class="btn btn-submit" type="submit">submit</button>
                     <a class="btn btn-cancel" type="button" href="../index.php">cancel</a>
-                    <h5>REMEMBER YOU ARE PICANTE <span class="emoji">&#127798;&#65039;</span></h5>
+                    <h5>REMEMBER YOU ARE <mark>PICANTE</mark><span class="emoji">&#127798;&#65039;</span></h5>
                 </div>
         </form>
     </div>

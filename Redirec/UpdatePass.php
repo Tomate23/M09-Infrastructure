@@ -265,6 +265,17 @@ ul li ul li a {
 
 <nav role="navigation" class="primary-navigation">
   <ul>
+
+<?php
+ini_set( "display_errors", 0);
+session_start();
+if($_SESSION['logged']==true){
+    $currentUser = $_SESSION["username"];
+    $role = $_SESSION['idRole'];
+    
+    
+}
+?>
     <li><a href="../index.php">Home</a></li>
 
     <!-- <li><a href="#">Work &dtrif;</a>
@@ -278,6 +289,15 @@ ul li ul li a {
     </li>
     <li><a href="./UpdateUser.php">Change User</a></li>
     <li><a href="./UpdateMail.php">Change Mail</a></li>
+    <?php
+      if($_SESSION['logged'] && $role=="adm"){
+      echo '
+        <li><a href="./AddRoom.php">Add Room</a></li>
+        <li><a href="./AddComp.php">Add Component</a></li>
+      ';
+
+  }
+  ?>
   </ul>
 </nav>
 

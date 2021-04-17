@@ -178,14 +178,8 @@ body {
     bottom: 100%;
   }
 }
-.valid {
+.errorMSG {
     background-color: #f44336;
-    text-transform: uppercase;
-    color: #000;
-    border: 1px solid black;
-}
-.valid2 {
-    background-color: green;
     text-transform: uppercase;
     color: #000;
     border: 1px solid black;
@@ -265,13 +259,14 @@ ul li ul li a {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
-    <title>Change Pass</title>
+    <title>Add Room</title>
 </head>
 <body>
 
 <nav role="navigation" class="primary-navigation">
   <ul>
-<?php
+    <li><a href="../index.php">Home</a></li>
+    <?php
 ini_set( "display_errors", 0);
 session_start();
 if($_SESSION['logged']==true){
@@ -281,7 +276,6 @@ if($_SESSION['logged']==true){
     
 }
 ?>
-    <li><a href="../index.php">Home</a></li>
 
     <!-- <li><a href="#">Work &dtrif;</a>
       <ul class="dropdown">
@@ -292,38 +286,38 @@ if($_SESSION['logged']==true){
       </ul> -->
       
     </li>
-    <li><a href="./UpdatePass.php">Change Password</a></li>
+    <li><a href="./UpdateUser.php">Change User</a></li>
     <li><a href="./UpdateMail.php">Change Mail</a></li>
+    <li><a href="./UpdatePass.php">Change Password</a></li>
     <?php
       if($_SESSION['logged'] && $role=="adm"){
       echo '
-        <li><a href="./AddRoom.php">Add Room</a></li>
         <li><a href="./AddComp.php">Add Component</a></li>
       ';
-
-  }
+      }
   ?>
+    
   </ul>
 </nav>
 
 <div class="login-box">
-  <h2>Change User Form</h2>
+  <h2>Add Room Form</h2>
   <?php
-    if (isset($_SESSION['errorname'])){
-        $errormsg = $_SESSION['errorname'];
-        echo '<center class="valid">' . $errormsg . '</center>';
-        unset($_SESSION['errorname']);
+    if (isset($_SESSION['error'])){
+        $errormsg = $_SESSION['error'];
+        echo '<div class="errorMSG">' . $errormsg . '</div>';
+        unset($_SESSION['error']);
     }
     echo "<br>";
     ?>
-  <form action="../Includes-PHP/ChangeUser.php" method="post">
+  <form action="../Includes-PHP/AddRoomSQL.php" method="post">
     <div class="user-box">
-      <input type="text" name="name" required>
-      <label>New User Name</label>
+      <input type="text" name="roomid" required>
+      <label>Room ID</label>
     </div>
     <div class="user-box">
-      <input type="text" name="rename" required>
-      <label>Retype User Name</label>
+      <input type="text" name="floor" required>
+      <label>Room Floor</label>
     </div>
     <button class="a" type="submit">
       <span></span>

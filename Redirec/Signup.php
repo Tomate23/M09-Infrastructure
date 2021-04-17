@@ -45,7 +45,7 @@ session_start();
                             <div class="form-block">
                                 <div class="mb-4">
                                     <h3>Sign Up</h3>
-                                    <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.
+                                    <p class="mb-4">Remenber you need an <b>Institut Pedralbes</b> account.
                                     </p>
                                     <?php
                                     if (isset($_SESSION['error'])) {

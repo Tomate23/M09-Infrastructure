@@ -577,12 +577,27 @@
       <label class="select" for="slct">
         <select id="slct" required="required" name="filter">
           <option value="all" disabled="disabled" selected="selected">Select option</option>
-          <option value="ASIX-06">ASIX-06</option>
+
+          <?php
+          include_once '../Includes-PHP/connection.php';
+          $sql = "select * from room;";
+          $result = mysqli_query($conndb,$sql);
+          $resultCheck = mysqli_num_rows($result);
+          if($resultCheck > 0){
+              while($row = mysqli_fetch_array($result)){
+                  echo '
+                      <option value="'.$row['idRoom'].'">'.$row['idRoom'].'</option>
+                  ';
+              }
+          }
+          ?>
+
+          <!-- <option value="ASIX-06">ASIX-06</option>
           <option value="ASIX-07">ASIX-07</option>
           <option value="BTX-01">BTX-01</option>
           <option value="BTX-02">BTX-02</option>
           <option value="ESO-01">ESO-01</option>
-          <option value="ESO-02">ESO-02</option>
+          <option value="ESO-02">ESO-02</option> -->
           <option value="deleted">Deleted</option>
         </select>
         <svg>
@@ -611,7 +626,8 @@
     <!-- <h1 class="heading">Events Administration</h1> -->
     <p class="description">
       Where administrators can manage the events.
-      <a href="../index.php">Home</a>
+      <a href="../index.php"><mark>Home</mark></a> - 
+      <a href="./SupplierPage.php">SupplierPage</a>
     </p>
 
     <?php

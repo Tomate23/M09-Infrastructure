@@ -58,10 +58,32 @@ ul li a:hover::after {
 </head>
 <body>
 <ul>
+
+<?php
+ini_set( "display_errors", 0);
+session_start();
+if($_SESSION['logged']==true){
+    $currentUser = $_SESSION["username"];
+    $role = $_SESSION['idRole'];
+    
+    
+}
+?>
+
+
   <li><a href="../index.php">home</a></li>
   <li><a href="./UpdatePass.php">Update Password</a></li>
   <li><a href="./UpdateUser.php">Update User</a></li>
   <li><a href="./UpdateMail.php">Update Mail</a></li>
+  <?php
+  if($_SESSION['logged'] && $role=="adm"){
+    echo '
+      <li><a href="./AddRoom.php">Add Room</a></li>
+      <li><a href="./AddComp.php">Add Component</a></li>
+    ';
+
+  }
+  ?>
 </ul>
 </body>
 </html>
