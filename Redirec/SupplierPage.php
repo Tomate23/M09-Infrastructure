@@ -27,6 +27,7 @@
   <h1 class="display-3">Suppliers</h1>
   <p class="lead">Administrator!!! Here you can se your Suppliers</p>
   <a href="./AddSupplier.php" class="btn btn-primary">Add Supplier</a>
+  <a href="./AddSupplierPhoto.php" class="btn btn-primary">Add Photo</a>
   <!-- <a href="" class="btn btn-primary">Click</a>
   <a href="" class="btn btn-secondary">Click</a> -->
 </section>

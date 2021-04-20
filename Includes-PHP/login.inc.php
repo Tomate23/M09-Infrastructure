@@ -4,9 +4,17 @@ include_once './connection.php';
  $name = $_POST['username'];
  $password = $_POST['password'];
 
+ /* $secure_name = $mysqli -> real_escape_string($name);
+ $secure_password = $mysqli -> real_escape_string($password);
+ */
+$secure_name = mysqli_real_escape_string($conndb,$name);
+$secure_pass = mysqli_real_escape_string($conndb,$password);
+
+
+
  $error = "INVALID INFORMATION";
 
- $sql = "SELECT * FROM userE WHERE nameUser='$name' AND passwordUser=MD5('$password');";
+ $sql = "SELECT * FROM userE WHERE nameUser='$secure_name' AND passwordUser=MD5('$secure_pass');";
  
 
  $result = mysqli_query($conndb,$sql);

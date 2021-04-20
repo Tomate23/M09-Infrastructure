@@ -195,9 +195,7 @@
             }
         }
 
-        .dash {
-            /* background-color: red; */
-        }
+        
 
         .draw-border {
             box-shadow: inset 0 0 0 4px #58afd1;
@@ -321,8 +319,9 @@
                 </div>
                 <div class="face face2">
                     <div class="content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
-                        <a href="#">Read More</a>
+                        <p>Here you can <b>LAUNCH</b> data to the DDBB, means that you can <mark>Insert</mark> new items.</p>
+                        <a href="./AddComp.php">Add Component</a>
+                        <a href="./AddRoom.php">Add Room</a>
                     </div>
                 </div>
             </div>

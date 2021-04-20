@@ -290,13 +290,13 @@ if($_SESSION['logged']==true){
     <li><a href="./UpdateUser.php">Change User</a></li>
     <li><a href="./UpdateMail.php">Change Mail</a></li>
     <?php
-      if($_SESSION['logged'] && $role=="adm"){
+      /* if($_SESSION['logged'] && $role=="adm"){
       echo '
         <li><a href="./AddRoom.php">Add Room</a></li>
         <li><a href="./AddComp.php">Add Component</a></li>
       ';
 
-  }
+  } */
   ?>
   </ul>
 </nav>

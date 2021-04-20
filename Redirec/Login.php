@@ -76,9 +76,11 @@ session_start();
                                 if(isset($_SESSION['error'])){
                                     $errormsg = $_SESSION['error'];
                                     echo '<center class="valid">'.$errormsg.'</center>';
+                                    unset($_SESSION['error']);
                                 }elseif(isset($_SESSION["errorlogin"])){
                                     $errormsg = $_SESSION['errorlogin'];
                                     echo '<center class="valid">'.$errormsg.'</center>';
+                                    unset($_SESSION['error']);
                                 }
                                 ?>
 

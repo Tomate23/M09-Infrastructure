@@ -286,9 +286,9 @@ if($_SESSION['logged']==true){
       </ul> -->
       
     </li>
-    <li><a href="./UpdateUser.php">Change User</a></li>
+    <!-- <li><a href="./UpdateUser.php">Change User</a></li>
     <li><a href="./UpdateMail.php">Change Mail</a></li>
-    <li><a href="./UpdatePass.php">Change Password</a></li>
+    <li><a href="./UpdatePass.php">Change Password</a></li> -->
     <?php
       if($_SESSION['logged'] && $role=="adm"){
       echo '

@@ -193,5 +193,11 @@ body {
   </div>
   <div class="right"></div>
 </div>
+<?php
+
+/* $image = 'https://i.postimg.cc/pTXZcMD0/aliexpress.png';
+$imageData = base64_encode(file_get_contents($image));
+echo '<img src="data:image/jpeg;base64,'.$imageData.'">'; */
+?>
 </body>
 </html>
